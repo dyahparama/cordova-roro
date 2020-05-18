@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-meida-sayang" version="0.1.0" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>MeidaSayang</name>
+    <js-module name="MeidaSayang" src="www/MeidaSayang.js">
+        <clobbers target="sayang" />
+    </js-module>
+    <platform name="android">
+        <framework src="com.android.support:support-v4:27.+" />
+        <framework src="com.android.support:appcompat-v7:21+" />
+        <framework src="com.pusher:pusher-java-client:2.0.2" />
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="MeidaSayang">
+                <param name="android-package" value="org.apache.cordova.sayang.MeidaSayang" />
+            </feature>
+        </config-file>
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <service android:name="org.apache.cordova.sayang.service" android:exported="false" />
+            <receiver android:name="org.apache.cordova.sayang.Receiver" android:directBootAware="true" android:exported="false">
+                <intent-filter>
+                    <action android:name="org.apache.cordova.sayang.BroadcastReceiver" />
+                </intent-filter>
+            </receiver>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+        </config-file>
+        <source-file src="src/android/MeidaSayang.java" target-dir="src/org/apache/cordova/sayang" />
+        <source-file src="src/android/service.java" target-dir="src/org/apache/cordova/sayang" />
+        <source-file src="src/android/Receiver.java" target-dir="src/org/apache/cordova/sayang" />
+        <source-file src="src/android/DatabaseHelper.java" target-dir="src/org/apache/cordova/sayang" />
+        <source-file src="src/android/Helper.java" target-dir="src/org/apache/cordova/sayang" />
+    </platform>
+</plugin>

@@ -1,0 +1,25 @@
+{
+  "name": "cordova-meida-sayang",
+  "version": "0.1.0",
+  "description": "",
+  "cordova": {
+    "id": "cordova-meida-sayang",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zemmuwa/capacitor.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "zemmy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zemmuwa/capacitor/issues"
+  },
+  "homepage": "https://github.com/zemmuwa/capacitor#readme"
+}
